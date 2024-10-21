@@ -26,7 +26,7 @@ jobs:
       - name: build and release to DockerHub
         env: 
           NAME: ${{secrets.DOCKERHUB_USERNAME}}
-          REPO: djangocicd
+          REPO: ${{secrets.DOCKERHUB_REPO}}
         run: |
           docker build -t $REPO . 
           docker tag $REPO:latest $NAME/$REPO:latest
